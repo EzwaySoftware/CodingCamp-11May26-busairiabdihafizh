@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualisasi Pengeluaran</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Visualisasi Pengeluaran & Anggaran</h1>
+        <button id="themeToggle" aria-label="Toggle dark/light mode" role="switch" aria-checked="false">
+            <span class="toggle-track">
+                <span class="toggle-thumb">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </span>
+            </span>
+        </button>
+    </div>
+
+    <header>
+        <h2>SALDO TOTAL</h2>
+        <h3>Rp 0</h3>
+    </header>
+
+    <section id="tambah-transaksi">
+        <h4>Tambah Transaksi</h4>
+        <label for="item">Nama Item</label>
+        <input type="text" id="item" placeholder="Masukkan Nama Barang"><br><br>
+
+        <label for="jumlah">Nominal</label>
+        <input type="number" id="jumlah" placeholder="Masukkan Jumlah Pengeluaran" min="0"><br><br>
+
+        <label for="kategori">Kategori</label>
+        <select name="kategori" id="kategori">
+            <option value="makanan">Makanan</option>
+            <option value="transport">Transport</option>
+            <option value="hiburan">Hiburan</option>
+        </select><br><br>
+
+        <div id="tambah-kategori-wrapper">
+            <label for="kategori-baru">Tambah Kategori Custom</label>
+            <div style="display:flex; gap:8px;">
+                <input type="text" id="kategori-baru" placeholder="Nama kategori baru..." style="flex:1; margin:0;">
+                <button type="button" id="btnTambahKategori" style="width:auto; padding: 12px 18px;">+ Tambah</button>
+            </div>
+            <div id="daftar-kategori-custom"></div>
+        </div><br>
+
+        <button type="button" id="btnTambah">Tambah Transaksi</button>
+    </section>
+
+    <section id="visualisasi-pengeluaran">
+        <!-- Daftar transaksi diisi oleh JS -->
+        <div id="daftar-transaksi">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:16px;">
+                <h4 style="margin:0;">Transaksi</h4>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <label for="sortBy" style="margin:0; font-size:0.85rem; white-space:nowrap;">Urutkan:</label>
+                    <select id="sortBy" style="width:auto; padding:8px 12px; font-size:0.85rem; margin:0;">
+                        <option value="terbaru">Terbaru</option>
+                        <option value="terlama">Terlama</option>
+                        <option value="tertinggi">Nominal Tertinggi</option>
+                        <option value="terendah">Nominal Terendah</option>
+                        <option value="nama">Nama A–Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="grafik-pengeluaran">
+            <h4>Pengeluaran Berdasarkan Kategori</h4>
+            <canvas id="expenseChart"></canvas>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

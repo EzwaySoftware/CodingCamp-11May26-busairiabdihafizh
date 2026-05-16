@@ -1,0 +1,399 @@
+:root {
+    --bg: #ffffff;
+    --text: #000000;
+    --panel: #fedd3f;
+    --secondary: #8a5ba6;
+    --button: #f13b57;
+    --button-hover: #d92d49;
+    --button-shadow: 0 8px 20px rgba(241, 59, 87, 0.25);
+    --card-bg: #ffffff;
+    --border: #e5e7eb;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    --radius: 20px;
+}
+
+body.dark {
+    --bg: #0f0f1a;
+    --text: #e2e8f0;
+    --panel: #a78bfa;
+    --secondary: #c084fc;
+    --button: #7c3aed;
+    --button-hover: #6d28d9;
+    --button-shadow: 0 8px 20px rgba(86, 59, 241, 0.25);
+    --card-bg: #1e1b2e;
+    --border: #2d2b45;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+body.dark {
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1030 100%);
+}
+
+body.dark input,
+body.dark select {
+    background: #2d2b45;
+    border-color: #3d3b55;
+    color: var(--text);
+}
+
+body.dark #daftar-transaksi,
+body.dark #grafik-pengeluaran {
+    background: var(--card-bg);
+    border-color: var(--border);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #fffbe6 100%);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 24px;
+    line-height: 1.5;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* ── Dark / Light Mode Toggle ── */
+#themeToggle {
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  box-shadow: none;
+}
+
+#themeToggle:hover {
+  background: transparent;
+  transform: none;
+}
+
+.toggle-track {
+  display: flex;
+  align-items: center;
+  width: 64px;
+  height: 34px;
+  border-radius: 999px;
+  background: #c4b5fd;
+  padding: 3px;
+  transition: background 0.35s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  position: relative;
+}
+
+.toggle-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  transform: translateX(0);
+}
+
+/* Sun icon — visible in light mode */
+.icon-sun {
+  width: 16px;
+  height: 16px;
+  color: #f59e0b;
+  position: absolute;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+  stroke: #f59e0b;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* Moon icon — hidden in light mode */
+.icon-moon {
+  width: 14px;
+  height: 14px;
+  color: #6d28d9;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  fill: #6d28d9;
+}
+
+/* ── Dark mode state ── */
+body.dark .toggle-track {
+  background: #4c1d95;
+}
+
+body.dark .toggle-thumb {
+  transform: translateX(30px);
+  background: #1e1b4b;
+}
+
+body.dark .icon-sun {
+  opacity: 0;
+}
+
+body.dark .icon-moon {
+  opacity: 1;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: var(--panel);
+}
+
+header {
+    background: linear-gradient(135deg, var(--panel), #b6c759);
+    color: #ffffff;
+    padding: 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+header h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+header h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+
+section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--panel);
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.25s;
+    background: #ffffff;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 4px rgba(254, 221, 63, 0.3);
+}
+
+button {
+    width: 100%;
+    background: var(--button);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s;
+    box-shadow: var(--button-shadow);
+}
+
+button:hover {
+    background: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+#visualisasi-pengeluaran {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+#daftar-transaksi, #grafik-pengeluaran {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+/* Scroll area for transaksis */
+#daftar-transaksi {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.status-kosong {
+  text-align: center;
+  color: #6b7280;
+  padding: 30px 10px;
+  font-size: 0.95rem;
+}
+
+.transaksi-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  background: var(--card-bg);
+  transition: 0.25s ease;
+  margin-bottom: 12px;
+}
+
+.transaksi-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Bagian kiri */
+.info-transaksi {
+  flex: 1;
+  min-width: 0;
+}
+
+.info-transaksi h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  word-break: break-word;
+}
+
+.kategori-transaksi {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.kategori-transaksi.makanan {
+  background: rgba(254, 221, 63, 0.2);
+  color: #8a6d00;
+}
+
+.kategori-transaksi.transport {
+  background: rgba(138, 91, 166, 0.15);
+  color: #6f3f8e;
+}
+
+.kategori-transaksi.hiburan {
+  background: rgba(241, 59, 87, 0.15);
+  color: #b81f3e;
+}
+
+/* Bagian kanan */
+.transaksi-kanan {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.nominal-transaksi {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--panel);
+  white-space: nowrap;
+}
+
+.delete-btn {
+  border: none;
+  border-radius: 10px;
+  background: rgba(241, 59, 87, 0.12);
+  color: #f13b57;
+  cursor: pointer;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1;
+  transition: 0.2s ease;
+  width: auto; /* override jika button global width: 100% */
+  box-shadow: none;
+}
+
+.delete-btn:hover {
+  background: var(--panel);
+  color: var(--card-bg);
+  transform: scale(1.08);
+}
+
+#grafik-pengeluaran {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+#grafik-pengeluaran h4 {
+    margin-bottom: 16px;
+}
+
+#daftar-transaksi::-webkit-scrollbar {
+    width: 8px;
+}
+
+#daftar-transaksi::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 999px;
+}
+
+@media (min-width: 768px) {
+    body {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 24px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #visualisasi-pengeluaran {
+        grid-template-columns: 1fr 1fr;
+    }
+}
